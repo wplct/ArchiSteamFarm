@@ -68,7 +68,8 @@ namespace ArchiSteamFarm {
 
 		[JsonProperty]
 		internal readonly string BotName;
-
+		[JsonProperty]
+		internal EResult BotError;
 		[JsonProperty]
 		internal readonly CardsFarmer CardsFarmer;
 
@@ -169,6 +170,7 @@ namespace ArchiSteamFarm {
 			BotName = botName;
 			BotConfig = botConfig;
 			BotDatabase = botDatabase;
+			BotError = EResult.Invalid;
 
 			ArchiLogger = new ArchiLogger(botName);
 
@@ -2042,7 +2044,7 @@ namespace ArchiSteamFarm {
 
 				return;
 			}
-
+			BotError = callback.Result;
 			// Always reset one-time-only access tokens
 			AuthCode = TwoFactorCode = null;
 
