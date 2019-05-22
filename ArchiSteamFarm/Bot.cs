@@ -170,6 +170,7 @@ namespace ArchiSteamFarm {
 			BotName = botName;
 			BotConfig = botConfig;
 			BotDatabase = botDatabase;
+			// TODO 发送更新状态请求
 			BotError = EResult.Invalid;
 
 			ArchiLogger = new ArchiLogger(botName);
